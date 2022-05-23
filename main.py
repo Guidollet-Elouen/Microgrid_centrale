@@ -182,3 +182,23 @@ def comparaison(prixtonne):#Attention longueur de A et T en fonction de len(prix
 ##Problemes
 #Interet de la vente de chaleur dans le cas global (benefice inter micro grid et consommation quand meme)
 P=[56*10**(-6),560*10**(-6)]
+
+
+def centralized_optimization(states):
+    # env_name in {ferme', 'evs', 'industrie', 'datacenter'}
+    # recupération des données
+    for env_name, state in states.items():
+        if env_name == 'ferme':
+            pv_production = state['pv_prevision']
+            # ...
+        elif env_name == 'datacenter':
+            hotwater_price = state['hotwater_price_prevision']
+
+    # optimization
+    optiglobal(...)
+    # get resultats
+    res = {}
+    for env_name, state in states.items():
+        res[env_name] = [0] * 48  # li
+
+    return res
